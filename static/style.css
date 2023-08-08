@@ -1,65 +1,105 @@
-#videoElement {
-  width: 100%;
-}
-
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 50px;
+header {
+  background-color: #85DCFF;
+  color: #333333;
+  text-align: center;
+  padding: 1rem 0;
 }
 
-.button {
-  margin-bottom: 10px;
-  padding: 12px 24px;
-  font-size: 16px;
-  border: 2px solid #333;
-  border-radius: 8px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.footer {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}
-
-.github-button {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #333;
-  color: #fff;
+main {
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 10px;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  display: block;
+  width: 200px;
+  padding: 30px;
+  margin: 60px;
+  font-size: 20px;
+  text-align: center;
+  background-color: #4CC366;
+  color: #333333;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Additional styles for the video recording buttons */
-.video-buttons {
-  display: flex;
-  flex-direction: row;
+.button:hover {
+  background-color: #3e9e53;
 }
 
-.record-button,
-.stop-button {
-  margin-right: 10px;
+.button a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the text color from parent button */
+  display: inline-block; /* Adjust display to match button styles */
+  /* padding: 0.5rem 1rem; Match button padding */
+  border-color: inherit; /* Match button border color */
+  border-width: inherit; /* Match button border width */
+  border-radius: inherit; /* Match button border radius */
+  background-color: inherit; /* Match button background color */
+}
+
+#startButton {
+  margin  : 20px;
+}
+
+#info {
+  /* margin : 20px; */
+  font-size: 20px;
+  color: #333333;
+  align-items: center;
+}
+
+#messageElement{
+  margin-top: 20px;
+  align-items: center;
+}
+
+video {
+  border: 2px solid #ccc;
+}
+
+#vidoElement {
+  width: auto;
+  height: auto;
+}
+
+footer {
+  background-color: #85DCFF;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.footer-links{
+  text-decoration: none;
+  font-size: 30px; /* Adjust the size as needed */
+  margin-right: 20px;
+  color: #211F1F; /* Change the color as needed */
 }

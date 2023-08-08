@@ -33,7 +33,7 @@ class ProcessVideoHandler(WebSocketHandler):
         
         # Delete the temporary file
         os.remove(tmp_file_path)
-
+    
         print(cls_inx[get_models_prediction[0]]) # prints the class name
         response = {"class": cls_inx[get_models_prediction[0]], "probability": str(get_models_prediction[1].round(2))}
         self.write(response) # Send response if needed
@@ -57,7 +57,7 @@ class ProcessVideoHandler(WebSocketHandler):
             try:
                 x = tf.convert_to_tensor(frames[-i]) # tries if there are any more frames left
             except:
-                return None, None # if not there wasnt
+                return [None, None] # if not there wasnt
             interpreter.set_tensor(input_details[0]['index'], x)
             interpreter.invoke() # Run the inference        
             y = interpreter.get_tensor(output_details[0]['index']) # Get the output tensor and post-process the result (if needed)
@@ -86,7 +86,7 @@ class ProcessVideoHandler(WebSocketHandler):
 
         cap.release() # closes the video file
 
-        # print(len(frames))
+        print(len(frames))
         print("Video processing finished!")
 
         return frames
@@ -94,7 +94,7 @@ class ProcessVideoHandler(WebSocketHandler):
 class MainHandler(RequestHandler):
 
     def get(self):
-        self.render("web.html")
+        self.render("main.html")
 
 def make_app():
     return tornado.web.Application([
@@ -104,7 +104,7 @@ def make_app():
     ])
 
 if __name__ == "__main__":
-    cls_inx = {0: "rock", 1: "paper", 2: "scissors"}
+    cls_inx = {0: "Rock", 1: "Paper", 2: "Scissors"}
 
     # Load the TensorFlow Lite model
     interpreter = tf.lite.Interpreter(model_path='tflite_model.tflite')
